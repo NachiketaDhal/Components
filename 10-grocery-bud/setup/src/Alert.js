@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const Alert = ({ alert }) => {
   return <p className={`alert alert-${alert.type}`}>{alert.msg}</p>;
