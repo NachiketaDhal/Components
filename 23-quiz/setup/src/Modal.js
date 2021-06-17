@@ -1,8 +1,23 @@
-import React from 'react'
-import { useGlobalContext } from './context'
+import React from "react";
+import { useGlobalContext } from "./context";
 
 const Modal = () => {
-  return <h2>modal component</h2>
-}
+  const { isModalOpen, isCorrect, questions, closeModal } = useGlobalContext();
 
-export default Modal
+  return (
+    <div className={`modal-container ${isModalOpen && "isOpen"}`}>
+      <div className="modal-content">
+        <h2>Congrats!</h2>
+        <p>
+          You answeres {Math.round((isCorrect * 100) / questions.length)}%
+          answers correctly
+        </p>
+        <button className="close-btn" onClick={closeModal}>
+          Play Again
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Modal;
